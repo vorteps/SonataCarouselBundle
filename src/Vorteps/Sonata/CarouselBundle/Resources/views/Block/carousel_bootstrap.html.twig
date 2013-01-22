@@ -1,0 +1,38 @@
+{#
+    This file is part of the Sonata Carousel project.
+  
+    (c) Stanislav Petrov <s.e.petrov@gmail.com>
+  
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+   
+#}
+{% extends 'VortepsSonataCarouselBundle:Block:carousel_base.html.twig' %}
+
+{% block block %}
+    {% if decorator %}{{ decorator.pre|raw }}{% endif %}
+    <div id="cms-block-carousel-bootstrap-{{ block.id }}" class="carousel{% if settings.slide %} slide{% endif %}">
+        <div class="carousel-inner">
+            {% for child in block.children %}
+                <div class="{% if loop.first %}active {% endif %}item">{{ sonata_page_render_block(child) }}</div>
+            {% endfor %}
+        </div>
+        {% if settings.controls %}
+            <a class="carousel-control left" href="#cms-block-carousel-bootstrap-{{ block.id }}" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#cms-block-carousel-bootstrap-{{ block.id }}" data-slide="next">&rsaquo;</a>
+        {% endif %}
+    </div>
+    {% if decorator %}{{ decorator.post|raw }}{% endif %}
+    <script>
+        {% set carousel_settings = {} %}
+        {% if settings.interval is defined and settings.interval > 0 %}
+            {% set carousel_settings = carousel_settings|merge({'interval': settings.interval}) %}
+        {% endif %}
+        {% if settings.pause is defined %}
+            {% set carousel_settings = carousel_settings|merge({'pause': settings.pause}) %}
+        {% endif %}
+        $(function() {
+            $('#cms-block-carousel-bootstrap-{{ block.id }}').carousel({{ carousel_settings|json_encode|raw }});
+        });
+    </script>
+{% endblock %}

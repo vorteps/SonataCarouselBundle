@@ -1,0 +1,22 @@
+{
+    "name": "vorteps/sonata-carousel-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 SonataCarouselBundle",
+    "keywords": ["symfony2", "sonata", "cms"],
+    "homepage": "https://github.com/sepetrov/SonataCarouselBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stanislav Petrov",
+            "email": "s.e.petrov@gmail.com",
+            "homepage": "http://sepetrov.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "sonata-project/page-bundle": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Vorteps\\Sonata\\CarouselBundle": "src/" }
+    }
+}
