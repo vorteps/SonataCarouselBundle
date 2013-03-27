@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "Symfony2 SonataCarouselBundle",
     "keywords": ["symfony2", "sonata", "cms"],
-    "homepage": "https://github.com/sepetrov/SonataCarouselBundle",
+    "homepage": "https://github.com/vorteps/SonataCarouselBundle",
     "license": "MIT",
     "authors": [
         {
